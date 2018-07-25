@@ -1,4 +1,4 @@
-package com.netease.anobot.model.user;
+package com.netease.anobot.entity.user;
 
 public class Group {
     private Long id;

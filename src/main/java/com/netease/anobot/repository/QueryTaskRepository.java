@@ -1,6 +1,6 @@
 package com.netease.anobot.repository;
 
-import com.netease.anobot.model.QuerySettings;
+import com.netease.anobot.entity.QuerySettings;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

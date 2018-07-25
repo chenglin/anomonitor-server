@@ -1,15 +1,16 @@
-package com.netease.anobot.model;
+package com.netease.anobot.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "dimension_item")
-public class DimensionItem {
+@Table(name = "measure_item")
+public class MeasureItem {
     @Id
     @GeneratedValue
     @Column(nullable = false)
     private Long id;
     private String name;
+    private Aggregation changes;
 
     public Long getId() {
         return id;
@@ -25,5 +26,13 @@ public class DimensionItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Aggregation getChanges() {
+        return changes;
+    }
+
+    public void setChanges(Aggregation changes) {
+        this.changes = changes;
     }
 }

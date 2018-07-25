@@ -1,6 +1,6 @@
 package com.netease.anobot.repository;
 
-import com.netease.anobot.model.alert.Email;
+import com.netease.anobot.entity.alert.Email;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

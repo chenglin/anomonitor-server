@@ -1,4 +1,4 @@
-package com.netease.anobot.model;
+package com.netease.anobot.entity;
 
 import javax.persistence.*;
 import java.util.HashSet;

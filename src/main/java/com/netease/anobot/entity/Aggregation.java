@@ -1,4 +1,4 @@
-package com.netease.anobot.model;
+package com.netease.anobot.entity;
 
 public enum Aggregation {
 

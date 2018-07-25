@@ -1,24 +1,24 @@
-package com.netease.anobot.model.alert;
-
+package com.netease.anobot.entity.alert;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "webhook")
-public class Webhook {
+@Table(name = "email")
+public class Email {
 
     @Id
     @GeneratedValue
+    @Column(nullable = false)
     private Long id;
     private String name;
-    private String url;
+    @Column(name = "email_address")
+    private String emailAddress;
     @Column(name = "create_time")
     private String createTime;
     @Column(name = "update_time")
     private String updateTime;
 
-    public Webhook() {
-    }
+    public Email() {}
 
     public Long getId() {
         return id;
@@ -36,12 +36,12 @@ public class Webhook {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getCreateTime() {

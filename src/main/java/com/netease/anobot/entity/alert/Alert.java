@@ -1,4 +1,4 @@
-package com.netease.anobot.model.alert;
+package com.netease.anobot.entity.alert;
 
 import javax.persistence.*;
 
