@@ -8,7 +8,7 @@ public class QuerySchedule {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private long id;
+    private Long id;
     @Column(name = "query_every")
     private String queryEvery;
     @Column(name = "records_delay")

@@ -3,5 +3,5 @@ package com.netease.anobot.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class DataSourceController {
+public class QueryTaskController {
 }

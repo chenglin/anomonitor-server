@@ -8,7 +8,7 @@ public class DBConn {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private long id;
+    private Long id;
     @Column(name = "location")
     private String location;
     @Column(name = "port")

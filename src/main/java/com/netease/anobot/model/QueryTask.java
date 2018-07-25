@@ -9,11 +9,11 @@ public class QueryTask {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private long id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "status")
-    private Status status;
+    private TaskStatus status;
     private QuerySchedule schedule;
     @Column(name = "table_name")
     private String tableName;
@@ -25,7 +25,7 @@ public class QueryTask {
     private List<String> dimensions;
 
     public QueryTask() {
-        this.status = Status.START;
+        this.status = TaskStatus.START;
     }
 
     public QueryTask(QuerySchedule schedule) {
@@ -41,11 +41,11 @@ public class QueryTask {
         this.id = id;
     }
 
-    public Status getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 

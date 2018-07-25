@@ -1,6 +1,6 @@
 package com.netease.anobot.model;
 
-public enum Status {
+public enum TaskStatus {
 
     START("start"),
     PROCESSING("processing"),
@@ -8,7 +8,7 @@ public enum Status {
 
     private String name;
 
-    Status(String name) {
+    TaskStatus(String name) {
         this.name = name;
     }
 
