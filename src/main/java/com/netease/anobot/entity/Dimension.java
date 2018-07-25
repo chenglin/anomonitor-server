@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "dimension_item")
-public class DimensionItem {
+public class Dimension {
     @Id
     @GeneratedValue
     @Column(nullable = false)

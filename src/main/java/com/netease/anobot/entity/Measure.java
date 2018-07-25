@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "measure_item")
-public class MeasureItem {
+public class Measure {
     @Id
     @GeneratedValue
     @Column(nullable = false)

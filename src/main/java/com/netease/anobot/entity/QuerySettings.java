@@ -23,16 +23,16 @@ public class QuerySettings {
     private String updateTime;
     @OneToMany(targetEntity = QuerySettings.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "querySettingsId", updatable = false)
-    private Set<MeasureItem> measures = new HashSet<>();
+    private Set<Measure> measures = new HashSet<>();
     @OneToMany(targetEntity = QuerySettings.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "querySettingsId", updatable = false)
-    private Set<DimensionItem> dimensions = new HashSet<>();
+    private Set<Dimension> dimensions = new HashSet<>();
 
     public QuerySettings() {
     }
 
-    public QuerySettings(Set<MeasureItem> measures,
-                         Set<DimensionItem> dimensions) {
+    public QuerySettings(Set<Measure> measures,
+                         Set<Dimension> dimensions) {
         this.measures = measures;
         this.dimensions = dimensions;
     }
@@ -89,19 +89,19 @@ public class QuerySettings {
         this.database = database;
     }
 
-    public Set<MeasureItem> getMeasures() {
+    public Set<Measure> getMeasures() {
         return measures;
     }
 
-    public void setMeasures(Set<MeasureItem> measures) {
+    public void setMeasures(Set<Measure> measures) {
         this.measures = measures;
     }
 
-    public Set<DimensionItem> getDimensions() {
+    public Set<Dimension> getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(Set<DimensionItem> dimensions) {
+    public void setDimensions(Set<Dimension> dimensions) {
         this.dimensions = dimensions;
     }
 }
