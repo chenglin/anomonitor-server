@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class DBConn {
     @Id
     @GeneratedValue
-    @Column(name = "Id", nullable = false)
+    @Column(nullable = false)
     private Long id;
     @Column(name = "location")
     private String location;

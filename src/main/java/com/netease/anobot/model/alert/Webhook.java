@@ -17,6 +17,9 @@ public class Webhook {
     @Column(name = "update_time")
     private String updateTime;
 
+    public Webhook() {
+    }
+
     public Long getId() {
         return id;
     }

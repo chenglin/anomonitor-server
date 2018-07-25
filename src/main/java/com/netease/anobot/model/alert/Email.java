@@ -18,6 +18,8 @@ public class Email {
     @Column(name = "update_time")
     private String updateTime;
 
+    public Email() {}
+
     public Long getId() {
         return id;
     }

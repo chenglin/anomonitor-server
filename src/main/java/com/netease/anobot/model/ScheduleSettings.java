@@ -3,11 +3,12 @@ package com.netease.anobot.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "query_schedule")
-public class QuerySchedule {
+@Table(name = "schedule_settings")
+public class ScheduleSettings {
+
     @Id
     @GeneratedValue
-    @Column(name = "Id", nullable = false)
+    @Column(nullable = false)
     private Long id;
     @Column(name = "query_every")
     private String queryEvery;
