@@ -1,14 +1,12 @@
 package com.netease.anomonitor;
 
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
-@Configuration
+@MapperScan("com.netease.anomonitor.mapper")
 public class AnobotApplication {
 
     public static void main(String args[]) {

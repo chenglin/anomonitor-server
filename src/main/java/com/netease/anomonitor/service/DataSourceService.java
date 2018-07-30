@@ -6,4 +6,5 @@ public interface DataSourceService {
 
     public List<String> getTableNames();
 
+    public boolean tryDBConn();
 }
