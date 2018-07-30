@@ -1,4 +1,7 @@
-package com.netease.anomonitor.entity;
+package com.netease.anomonitor.entity.query;
+
+import com.netease.anomonitor.entity.metrics.Dimension;
+import com.netease.anomonitor.entity.metrics.Measure;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,5 +1,4 @@
 package com.netease.anomonitor.service;
 
-public interface WebhookService {
-
+public interface DashboardService {
 }

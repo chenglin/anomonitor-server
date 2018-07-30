@@ -1,4 +1,4 @@
-package com.netease.anomonitor.entity;
+package com.netease.anomonitor.entity.metrics;
 
 public class Dimension {
     private Long id;

@@ -1,4 +1,4 @@
-package com.netease.anomonitor.entity;
+package com.netease.anomonitor.entity.conn;
 
 public class DBConn {
     private Long id;

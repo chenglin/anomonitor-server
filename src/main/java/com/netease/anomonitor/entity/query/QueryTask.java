@@ -1,4 +1,4 @@
-package com.netease.anomonitor.entity;
+package com.netease.anomonitor.entity.query;
 
 
 public class QueryTask {

@@ -1,4 +1,6 @@
-package com.netease.anomonitor.entity;
+package com.netease.anomonitor.entity.metrics;
+
+import com.netease.anomonitor.entity.metrics.Aggregation;
 
 public class Measure {
     private Long id;
