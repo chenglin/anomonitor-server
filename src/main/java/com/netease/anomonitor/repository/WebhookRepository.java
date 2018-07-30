@@ -1,9 +1,13 @@
 package com.netease.anomonitor.repository;
 
-import com.netease.anomonitor.entity.alert.Webhook;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WebhookRepository extends CrudRepository<Webhook, Long> {
+public class WebhookRepository {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
 }
