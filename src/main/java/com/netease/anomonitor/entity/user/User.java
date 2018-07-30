@@ -9,6 +9,9 @@ public class User {
     private Group group;
     private String createTime;
 
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }
