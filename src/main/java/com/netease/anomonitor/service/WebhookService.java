@@ -1,6 +1,4 @@
 package com.netease.anomonitor.service;
 
-
-public interface QueryTaskService {
-
+public interface WebhookService {
 }
