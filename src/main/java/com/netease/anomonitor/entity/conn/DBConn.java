@@ -1,12 +1,17 @@
 package com.netease.anomonitor.entity.conn;
 
-public class DBConn {
+import java.io.Serializable;
+
+public class DBConn implements Serializable {
     private Long id;
     private String dbName;
     private String dbIp;
     private String dbPort;
     private String dbUser;
     private String dbPasswd;
+
+    public DBConn() {
+    }
 
     public Long getId() {
         return id;
@@ -54,5 +59,17 @@ public class DBConn {
 
     public void setDbPasswd(String dbPasswd) {
         this.dbPasswd = dbPasswd;
+    }
+
+    @Override
+    public String toString() {
+        return "DBConn{" +
+                "id=" + id +
+                ", dbName='" + dbName + '\'' +
+                ", dbIp='" + dbIp + '\'' +
+                ", dbPort='" + dbPort + '\'' +
+                ", dbUser='" + dbUser + '\'' +
+                ", dbPasswd='" + dbPasswd + '\'' +
+                '}';
     }
 }

@@ -1,14 +1,15 @@
 package com.netease.anomonitor.service.impl;
 
-import com.netease.anomonitor.mapper.WebhookMapper;
 import com.netease.anomonitor.service.WebhookService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
 
 @Service
 public class WebhookServiceImpl implements WebhookService {
-
-    @Autowired
-    private WebhookMapper webhookRepository;
+    private final Logger logger = LoggerFactory.getLogger(WebhookServiceImpl.class);
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 }
