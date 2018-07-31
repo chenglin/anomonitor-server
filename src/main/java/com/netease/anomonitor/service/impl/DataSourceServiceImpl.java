@@ -13,8 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.sql.DataSource;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +20,6 @@ import java.util.Map;
 @Service
 public class DataSourceServiceImpl implements DataSourceService {
     private final Logger logger = LoggerFactory.getLogger(DataSourceServiceImpl.class);
-
 
     @Autowired
     private DataSourceMapper dataSourceMapper;
