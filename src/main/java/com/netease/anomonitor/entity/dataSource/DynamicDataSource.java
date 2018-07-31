@@ -1,9 +1,9 @@
-package com.netease.anomonitor.mybatis;
+package com.netease.anomonitor.entity.dataSource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
@@ -11,7 +11,10 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
     private static byte[] lock = new byte[0];
 
-    private static Map<Object, Object> dataSourceMap = new HashMap<>();
+    private static Map<Object, Object> dataSourceMap = new ConcurrentHashMap<>();
+
+    private DynamicDataSource() {
+    }
 
     public static synchronized DynamicDataSource getInstance() {
         if (instance == null) {

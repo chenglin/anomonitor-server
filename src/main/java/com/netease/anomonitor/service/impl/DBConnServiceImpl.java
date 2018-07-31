@@ -21,6 +21,21 @@ public class DBConnServiceImpl implements DBConnService {
 
     @Override
     public List<DBConn> getAllConn() {
-        return null;
+        return dbConnMapper.getAll();
+    }
+
+    @Override
+    public DBConn getConnById(Long id) {
+        return dbConnMapper.getById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        dbConnMapper.delete(id);
+    }
+
+    @Override
+    public void addOne(DBConn conn) {
+        dbConnMapper.insertOne(conn);
     }
 }

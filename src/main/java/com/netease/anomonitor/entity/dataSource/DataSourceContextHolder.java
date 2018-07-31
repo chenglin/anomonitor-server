@@ -1,4 +1,4 @@
-package com.netease.anomonitor.mybatis;
+package com.netease.anomonitor.entity.dataSource;
 
 public class DataSourceContextHolder {
 

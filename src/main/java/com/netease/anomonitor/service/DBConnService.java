@@ -9,4 +9,10 @@ public interface DBConnService {
 
     List<DBConn> getAllConn();
 
+    DBConn getConnById(Long id);
+
+    void deleteById(Long id);
+
+    void addOne(DBConn conn);
+
 }
