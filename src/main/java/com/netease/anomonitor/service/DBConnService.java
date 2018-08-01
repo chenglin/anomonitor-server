@@ -15,4 +15,6 @@ public interface DBConnService {
 
     void addOne(DBConn conn);
 
+    void isExist(String url);
+
 }

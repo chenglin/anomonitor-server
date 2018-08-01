@@ -1,6 +1,7 @@
 package com.netease.anomonitor.entity.conn;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.netease.anomonitor.entity.enu.DBType;
 
 import java.io.Serializable;
 
@@ -12,6 +13,8 @@ public class DBConn implements Serializable {
     private String dbPort;
     private String dbUser;
     private String dbPasswd;
+    private String url;
+    private DBType dbType;
 
     public DBConn() {
     }
@@ -64,6 +67,22 @@ public class DBConn implements Serializable {
         this.dbPasswd = dbPasswd;
     }
 
+    public DBType getDbType() {
+        return dbType;
+    }
+
+    public void setDbType(DBType dbType) {
+        this.dbType = dbType;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @Override
     public String toString() {
         return "DBConn{" +
@@ -73,6 +92,7 @@ public class DBConn implements Serializable {
                 ", dbPort='" + dbPort + '\'' +
                 ", dbUser='" + dbUser + '\'' +
                 ", dbPasswd='" + dbPasswd + '\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.netease.anomonitor.entity.dataSource;
+package com.netease.anomonitor.db;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
@@ -16,7 +16,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     private DynamicDataSource() {
     }
 
-    public static synchronized DynamicDataSource getInstance() {
+    public synchronized static DynamicDataSource getInstance() {
         if (instance == null) {
             synchronized (lock) {
                 if (instance == null) {

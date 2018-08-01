@@ -38,4 +38,9 @@ public class DBConnServiceImpl implements DBConnService {
     public void addOne(DBConn conn) {
         dbConnMapper.insertOne(conn);
     }
+
+    @Override
+    public void isExist(String url) {
+
+    }
 }

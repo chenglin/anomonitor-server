@@ -2,18 +2,18 @@ package com.netease.anomonitor.service.impl;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.netease.anomonitor.entity.conn.DBConn;
-import com.netease.anomonitor.entity.dataSource.DataSourceFactory;
-import com.netease.anomonitor.entity.dataSource.DynamicDataSourceDelegate;
+import com.netease.anomonitor.db.DataSourceFactory;
+import com.netease.anomonitor.db.DynamicDataSourceDelegate;
 import com.netease.anomonitor.mapper.DataSourceMapper;
-import com.netease.anomonitor.entity.dataSource.DataSourceContextHolder;
-import com.netease.anomonitor.entity.dataSource.DynamicDataSource;
+import com.netease.anomonitor.db.DataSourceContextHolder;
+import com.netease.anomonitor.db.DynamicDataSource;
+import com.netease.anomonitor.service.DBConnService;
 import com.netease.anomonitor.service.DataSourceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +24,9 @@ public class DataSourceServiceImpl implements DataSourceService {
     @Autowired
     private DataSourceMapper dataSourceMapper;
 
+    @Autowired
+    private DBConnService dbConnService;
+
     public List<String> getTableNames(DBConn conn) {
         DruidDataSource dataSource = DataSourceFactory.getInstance().newDataSource(conn);
         Map<Object, Object> dataSourceMap = DynamicDataSource.getInstance().getDataSourceMap();
@@ -33,13 +36,7 @@ public class DataSourceServiceImpl implements DataSourceService {
         DataSourceContextHolder.setDBType(dataSourceName);
         List<Map> tableList = dataSourceMapper.listTables();
         logger.info("Database name = {}, table size = {}", conn.getDbName(), tableList.size());
-        List<String> tableNameList = new ArrayList<>();
-        for (int i = 0; i < tableList.size(); i++) {
-            Map tableMap = tableList.get(i);
-            String tableName = (String) tableMap.get(DynamicDataSourceDelegate.TABLE_NAME);
-            tableNameList.add(tableName);
-        }
-        return tableNameList;
+        return DynamicDataSourceDelegate.getTableDescValues(tableList, "TABLE_NAME");
     }
 
     @Override

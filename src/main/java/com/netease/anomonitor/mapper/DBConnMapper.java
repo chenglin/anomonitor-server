@@ -35,4 +35,6 @@ public interface DBConnMapper {
 
     @Delete("DELETE FROM db_conns WHERE id = #{id}")
     void delete(Long id);
+
+
 }

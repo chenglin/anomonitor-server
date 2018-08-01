@@ -1,4 +1,4 @@
-package com.netease.anomonitor.entity.dataSource;
+package com.netease.anomonitor.db;
 
 
 import com.alibaba.druid.pool.DruidDataSource;
