@@ -1,10 +1,20 @@
-package com.netease.anomonitor.db;
+package com.netease.anomonitor.dto;
 
 public class TableColumn {
 
     private String tableName;
 
     private String tableType;
+
+    public TableColumn() {
+
+    }
+
+    public TableColumn(String tableName, String tableType) {
+        this();
+        this.tableName = tableName;
+        this.tableType = tableType;
+    }
 
     public String getTableName() {
         return tableName;

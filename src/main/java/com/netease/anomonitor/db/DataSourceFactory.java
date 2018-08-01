@@ -8,9 +8,13 @@ public class DataSourceFactory {
 
     private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
+    private static final int MAX_WAIT_TIME = 5000;
+
     private volatile static DataSourceFactory instance;
 
     private static byte[] lock = new byte[0];
+
+    private final static String MYSQL = "mysql";
 
     private DataSourceFactory() {
 
@@ -30,9 +34,10 @@ public class DataSourceFactory {
     public static DruidDataSource newDataSource(DBConn conn) {
         DruidDataSource dynamicDataSource = new DruidDataSource();
         dynamicDataSource.setDriverClassName(DRIVER_CLASS_NAME);
-        dynamicDataSource.setUrl("jdbc:mysql://" + conn.getDbIp() + ":" + conn.getDbPort() + "/" + conn.getDbName() + "?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull");
+        dynamicDataSource.setUrl(DynamicDataSourceDelegate.generateMySQLUrl(conn));
         dynamicDataSource.setUsername(conn.getDbUser());
         dynamicDataSource.setPassword(conn.getDbPasswd());
+        dynamicDataSource.setMaxWait(MAX_WAIT_TIME);
         return dynamicDataSource;
     }
 

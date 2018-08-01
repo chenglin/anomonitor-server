@@ -8,10 +8,10 @@ import java.util.Map;
 
 public interface DataSourceMapper {
 
-    @Select("select * from information_schema.TABLES where TABLE_SCHEMA=(select database())")
+    @Select("SELECT * FROM information_schema.TABLES WHERE TABLE_SCHEMA=(SELECT database())")
     List<Map> listTables();
 
-    @Select("select * from information_schema.COLUMNS where TABLE_SCHEMA = (select database()) and TABLE_NAME=#{tableName}")
+    @Select("SELECT * FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = (SELECT database()) AND TABLE_NAME=#{tableName}")
     List<Map> listTableColumns(String tableName);
 
 

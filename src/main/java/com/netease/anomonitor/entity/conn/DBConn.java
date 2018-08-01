@@ -15,6 +15,7 @@ public class DBConn implements Serializable {
     private String dbPasswd;
     private String url;
     private DBType dbType;
+    private String tableName;
 
     public DBConn() {
     }
@@ -83,6 +84,14 @@ public class DBConn implements Serializable {
         this.url = url;
     }
 
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
     @Override
     public String toString() {
         return "DBConn{" +
@@ -93,6 +102,8 @@ public class DBConn implements Serializable {
                 ", dbUser='" + dbUser + '\'' +
                 ", dbPasswd='" + dbPasswd + '\'' +
                 ", url='" + url + '\'' +
+                ", dbType=" + dbType +
+                ", tableName='" + tableName + '\'' +
                 '}';
     }
 }
