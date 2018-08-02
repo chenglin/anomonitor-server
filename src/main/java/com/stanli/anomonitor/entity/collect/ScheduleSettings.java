@@ -6,7 +6,7 @@ public class ScheduleSettings {
 
     @JsonIgnore
     private Long id;
-    private String queryEvery;
+    private int queryEvery;
     private String recordsDelay;
     private String timezone;
     private String backfillPolicy;
@@ -22,11 +22,11 @@ public class ScheduleSettings {
         this.id = id;
     }
 
-    public String getQueryEvery() {
+    public int getQueryEvery() {
         return queryEvery;
     }
 
-    public void setQueryEvery(String queryEvery) {
+    public void setQueryEvery(int queryEvery) {
         this.queryEvery = queryEvery;
     }
 

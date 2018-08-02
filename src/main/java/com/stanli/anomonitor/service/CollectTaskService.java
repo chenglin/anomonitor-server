@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface CollectTaskService {
 
-    void addTask(CollectTask queryTask);
+    void addTask(CollectTask collectTask);
+
+    void deleteTask(Long id);
+
+    void updateTask(CollectTask collectTask);
 
     List<CollectTask> getAllTask();
 

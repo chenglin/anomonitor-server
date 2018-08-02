@@ -3,7 +3,7 @@ package com.stanli.anomonitor.entity.collect;
 public enum TaskStatus {
 
     START("start"),
-    PROCESSING("processing"),
+    TRAINING("processing"),
     DONE("done");
 
     private String name;

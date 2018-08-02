@@ -1,10 +1,9 @@
 package com.stanli.anomonitor.service.impl;
 
 import com.stanli.anomonitor.entity.collect.CollectTask;
-import com.stanli.anomonitor.entity.collect.ScheduleSettings;
+import com.stanli.anomonitor.entity.collect.TaskStatus;
 import com.stanli.anomonitor.mapper.CollectTaskMapper;
 import com.stanli.anomonitor.service.CollectTaskService;
-import com.stanli.anomonitor.service.ScheduleSettingsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +18,21 @@ public class CollectTaskServiceImpl implements CollectTaskService {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    private ScheduleSettingsService scheduleSettingsService;
-
-    @Autowired
     private CollectTaskMapper collectTaskMapper;
 
     @Override
-    public void addTask(CollectTask task) {
-        ScheduleSettings scheduleSettings = scheduleSettingsService.getScheduleSettings();
+    public void addTask(CollectTask collectTask) {
+        collectTask.setStatus(TaskStatus.START);
+        collectTaskMapper.addOne(collectTask);
+    }
+
+    @Override
+    public void deleteTask(Long id) {
+        collectTaskMapper.deleteById(id);
+    }
+
+    @Override
+    public void updateTask(CollectTask collectTask) {
 
     }
 
