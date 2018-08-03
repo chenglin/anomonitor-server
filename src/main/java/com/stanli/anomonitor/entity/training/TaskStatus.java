@@ -1,10 +1,10 @@
 package com.stanli.anomonitor.entity.training;
 
 public enum TaskStatus {
-    START_TRAINING,
-    INIT_TRAINING_COLLECT,
+    INIT_TASK,
+    STREAMING_DATA,
+    STREAMING_DATA_END,
     INIT_TRAINING,
+    INIT_TREANING_END,
     PERIODIC_TRAINING,
-    PERIODIC_TRAINING_STARTED;
-
 }

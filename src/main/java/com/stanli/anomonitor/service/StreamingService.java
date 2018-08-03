@@ -5,5 +5,8 @@ package com.stanli.anomonitor.service;
  *
  * @author Stanley Huang
  */
-public class StreamDataService {
+public interface StreamingService {
+
+    void startInitStreaming();
+
 }
