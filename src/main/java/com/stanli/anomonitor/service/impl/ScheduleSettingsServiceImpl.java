@@ -1,6 +1,6 @@
 package com.stanli.anomonitor.service.impl;
 
-import com.stanli.anomonitor.entity.collect.ScheduleSettings;
+import com.stanli.anomonitor.entity.training.ScheduleSettings;
 import com.stanli.anomonitor.mapper.ScheduleSettingsMapper;
 import com.stanli.anomonitor.service.ScheduleSettingsService;
 import org.slf4j.Logger;

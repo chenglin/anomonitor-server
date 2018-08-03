@@ -1,4 +1,4 @@
-package com.stanli.anomonitor.entity.collect;
+package com.stanli.anomonitor.entity.training;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

@@ -1,14 +1,14 @@
-package com.stanli.anomonitor.entity.collect;
+package com.stanli.anomonitor.entity.training;
 
 
-public class CollectTask {
+public class TrainingTask {
 
     private Long id;
     private String executeSql;
     private TaskStatus status;
     private String createTime;
 
-    public CollectTask() {
+    public TrainingTask() {
 
     }
 

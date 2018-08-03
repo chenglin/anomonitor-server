@@ -1,7 +1,7 @@
 package com.stanli.anomonitor.mapper;
 
 
-import com.stanli.anomonitor.entity.collect.ScheduleSettings;
+import com.stanli.anomonitor.entity.training.ScheduleSettings;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 

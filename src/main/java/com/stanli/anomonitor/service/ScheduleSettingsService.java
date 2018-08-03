@@ -1,6 +1,6 @@
 package com.stanli.anomonitor.service;
 
-import com.stanli.anomonitor.entity.collect.ScheduleSettings;
+import com.stanli.anomonitor.entity.training.ScheduleSettings;
 
 public interface ScheduleSettingsService {
 

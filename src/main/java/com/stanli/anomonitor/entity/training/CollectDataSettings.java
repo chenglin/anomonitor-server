@@ -1,8 +1,8 @@
-package com.stanli.anomonitor.entity.collect;
+package com.stanli.anomonitor.entity.training;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class CollectSettings {
+public class CollectDataSettings {
 
     @JsonIgnore
     private Long id;
@@ -13,7 +13,7 @@ public class CollectSettings {
     private String updateTime;
 
 
-    public CollectSettings() {
+    public CollectDataSettings() {
     }
 
     public long getId() {
