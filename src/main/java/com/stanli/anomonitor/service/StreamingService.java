@@ -1,5 +1,7 @@
 package com.stanli.anomonitor.service;
 
+import com.stanli.anomonitor.entity.DataStreamTask;
+
 /**
  * Created on 2018/8/3 14:52.
  *
@@ -7,6 +9,6 @@ package com.stanli.anomonitor.service;
  */
 public interface StreamingService {
 
-    void startInitStreaming();
+    void startInitStreaming(DataStreamTask task);
 
 }

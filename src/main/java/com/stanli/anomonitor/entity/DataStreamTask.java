@@ -1,14 +1,20 @@
 package com.stanli.anomonitor.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stanli.anomonitor.entity.training.TaskStatus;
 
+import java.util.List;
+
 public class DataStreamTask {
+    @JsonIgnore
     private Long id;
     private TaskStatus taskStatus;
     private String name;
     private String createTime;
     private String schemaName;
     private DataSource dataSource;
+    private List<Measure> measures;
+    private List<Dimension> dimensions;
 
     public DataStreamTask() {
     }
@@ -59,6 +65,22 @@ public class DataStreamTask {
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
+    }
+
+    public List<Measure> getMeasures() {
+        return measures;
+    }
+
+    public void setMeasures(List<Measure> measures) {
+        this.measures = measures;
+    }
+
+    public List<Dimension> getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(List<Dimension> dimensions) {
+        this.dimensions = dimensions;
     }
 }
 

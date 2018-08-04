@@ -2,7 +2,7 @@ package com.stanli.anomonitor.entity.metrics;
 
 public class Metrics {
     private Long id;
-    private Long taskId;
+    private Integer taskId;
     private String timestamp;
     private String name;
     private String value;
@@ -61,11 +61,11 @@ public class Metrics {
         this.aggregation = aggregation;
     }
 
-    public Long getTaskId() {
+    public Integer getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(Long taskId) {
+    public void setTaskId(Integer taskId) {
         this.taskId = taskId;
     }
 }

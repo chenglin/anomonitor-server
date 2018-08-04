@@ -1,4 +1,4 @@
-package com.stanli.anomonitor.schedule.task;
+package com.stanli.anomonitor.schedule.executor;
 
 import com.stanli.anomonitor.entity.metrics.Metrics;
 import com.stanli.anomonitor.mapper.ScheduleSettingsMapper;
@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 @Component
-public class InitTrainingTask {
-    private static final Logger logger = LoggerFactory.getLogger(InitTrainingTask.class);
+public class InitTrainingExecutor {
+    private static final Logger logger = LoggerFactory.getLogger(InitTrainingExecutor.class);
 
     @Autowired
     private ScheduleSettingsMapper scheduleSettingsMapper;

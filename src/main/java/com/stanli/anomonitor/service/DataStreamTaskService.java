@@ -8,9 +8,9 @@ public interface DataStreamTaskService {
 
     List<DataStreamTask> getAllTasks();
 
-    void addTask(Long dbId, DataStreamTask task);
+    Integer addTask(DataStreamTask task);
 
-    void deleteTask(Long id);
+    void deleteTask(Integer taskId);
 
     void updateTask(DataStreamTask task);
 

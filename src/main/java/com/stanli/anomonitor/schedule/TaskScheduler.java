@@ -26,7 +26,7 @@ public class TaskScheduler {
 
     @Scheduled(cron = "0/5 * * * * ? ")   //每5秒执行一次
     public void collectTaskExecuteLoop() {
-        logger.info("Collec task");
+        logger.info("Collec executor");
         List<DataStreamTask> tasks = dataStreamTaskService.getAllTasks();
         if (tasks != null) {
             for (int i = 0; i < tasks.size(); i++) {

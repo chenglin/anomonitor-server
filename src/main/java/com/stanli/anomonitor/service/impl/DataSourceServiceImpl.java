@@ -22,37 +22,36 @@ public class DataSourceServiceImpl implements DataSourceService {
     private DataSourceMapper dataSourceMapper;
 
     @Override
-    public DataSource addDataSource(DataSource ds) throws Exception {
-        ds.setDbUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
+    public Integer addDataSource(DataSource ds) throws Exception {
         DynamicDataSourceDelegate.setDataSource(ds);
-        // check if data source is right
         List<Map> tables = dataSourceMapper.listTables();
         logger.info("Connected data source, table size = {}", tables.size());
         DataSourceContextHolder.setDBType("default");
-        List<Map> tableList = dataSourceMapper.listTables();
-        logger.info(" 2 Connected data source, table size = {}", tableList.size());
-        dataSourceMapper.insertOne(ds);
-        return dataSourceMapper.getByUrl(ds.getDbUrl());
+        logger.info("Reconnected default data source");
+        return dataSourceMapper.insertOne(ds);
     }
 
     @Override
-    public List<String> listTables(Long id) throws Exception {
+    public List<String> listTables(Integer id) throws Exception {
         DataSource ds = dataSourceMapper.getById(id);
         DynamicDataSourceDelegate.setDataSource(ds);
         List<Map> tableList = dataSourceMapper.listTables();
         logger.info("Database name = {}, table size = {}", ds.getDbName(), tableList.size());
-        ds.setDbUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
         return DynamicDataSourceDelegate.getTableDescValues(tableList);
     }
 
     @Override
-    public List<TableColumn> listTableColumns(Long id, String schemaName) throws Exception {
+    public List<TableColumn> listTableColumns(Integer id, String schemaName) throws Exception {
         DataSource ds = dataSourceMapper.getById(id);
         DynamicDataSourceDelegate.setDataSource(ds);
         List<Map> columnDesc = dataSourceMapper.listTableColumns(schemaName);
         logger.info("Database name = {}, table size = {}", ds.getDbName(), columnDesc.size());
-        ds.setDbUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
         return DynamicDataSourceDelegate.getTableColumnDescValue(columnDesc);
+    }
+
+    @Override
+    public DataSource getDataSourceById(Integer id) {
+        return dataSourceMapper.getById(id);
     }
 
 }

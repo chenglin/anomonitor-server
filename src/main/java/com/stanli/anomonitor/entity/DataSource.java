@@ -4,22 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class DataSource {
     @JsonIgnore
-    private Long id;
-    private String name;
+    private Integer id;
     private String dbName;
     private String dbIp;
-    private Integer dbPort;
+    private String dbPort;
     private String dbUser;
     private String dbPasswd;
-    private String dbUrl;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getDbName() {
         return dbName;
@@ -35,14 +25,6 @@ public class DataSource {
 
     public void setDbIp(String dbIp) {
         this.dbIp = dbIp;
-    }
-
-    public Integer getDbPort() {
-        return dbPort;
-    }
-
-    public void setDbPort(Integer dbPort) {
-        this.dbPort = dbPort;
     }
 
     public String getDbUser() {
@@ -61,19 +43,19 @@ public class DataSource {
         this.dbPasswd = dbPasswd;
     }
 
-    public String getName() {
-        return name;
+    public Integer getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDbUrl() {
-        return dbUrl;
+    public String getDbPort() {
+        return dbPort;
     }
 
-    public void setDbUrl(String dbUrl) {
-        this.dbUrl = dbUrl;
+    public void setDbPort(String dbPort) {
+        this.dbPort = dbPort;
     }
 }

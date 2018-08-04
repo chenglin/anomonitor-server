@@ -7,10 +7,11 @@ import java.util.List;
 
 public interface DataSourceService {
 
-    DataSource addDataSource(DataSource ds) throws Exception;
+    Integer addDataSource(DataSource ds) throws Exception;
 
-    List<String> listTables(Long id) throws Exception;
+    List<String> listTables(Integer id) throws Exception;
 
-    List<TableColumn> listTableColumns(Long id, String schemaName) throws Exception;
+    List<TableColumn> listTableColumns(Integer id, String schemaName) throws Exception;
 
+    DataSource getDataSourceById(Integer id);
 }

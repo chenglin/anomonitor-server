@@ -1,6 +1,6 @@
 package com.stanli.anomonitor.service.impl;
 
-import com.stanli.anomonitor.schedule.task.InitTrainingTask;
+import com.stanli.anomonitor.schedule.executor.InitTrainingExecutor;
 import com.stanli.anomonitor.service.TrainingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,7 @@ public class TrainingServiceImpl implements TrainingService {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    private InitTrainingTask initTrainingTask;
+    private InitTrainingExecutor initTrainingTask;
 
     public void startInitTraining() {
         try {

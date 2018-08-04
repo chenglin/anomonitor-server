@@ -24,11 +24,11 @@ public class DataSourceController {
 
     @ApiOperation(value = "")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseContent<DataSource> addDataSource(
+    public ResponseContent<Integer> addDataSource(
             @RequestBody DataSource dataSource) {
         try {
-            dataSource = dataSourceService.addDataSource(dataSource);
-            return new ResponseContent<>(false, dataSource, "");
+            Integer dsId = dataSourceService.addDataSource(dataSource);
+            return new ResponseContent<>(true, dsId, "");
         } catch (Exception e) {
             return new ResponseContent<>(false, null, "");
         }
@@ -36,7 +36,7 @@ public class DataSourceController {
 
     @ApiOperation(value = "获取数据库连接，对应的所有表", notes = "根据连接信息获取数据库连接，对应的所有表")
     @RequestMapping(value = "/list-tables", method = RequestMethod.GET)
-    public ResponseContent<List<String>> listTables(@RequestParam Long dsId) {
+    public ResponseContent<List<String>> listTables(@RequestParam Integer dsId) {
         try {
             List<String> tableNames = dataSourceService.listTables(dsId);
             return new ResponseContent<>(true, tableNames, "");
@@ -49,7 +49,7 @@ public class DataSourceController {
 
     @ApiOperation(value = "获取数据库中的表", notes = "根据表名和数据库名获取表描述")
     @RequestMapping(value = "/list-table-columns", method = RequestMethod.GET)
-    public ResponseContent<List<TableColumn>> listTableColumn(@RequestParam Long dsId,
+    public ResponseContent<List<TableColumn>> listTableColumn(@RequestParam Integer dsId,
                                                               @RequestParam String schemaName) {
         try {
             List<TableColumn> tableColumns = dataSourceService.listTableColumns(dsId, schemaName);
