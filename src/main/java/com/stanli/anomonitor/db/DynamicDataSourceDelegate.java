@@ -2,8 +2,10 @@ package com.stanli.anomonitor.db;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.stanli.anomonitor.dto.TableColumn;
+import com.stanli.anomonitor.entity.DataSource;
 import com.stanli.anomonitor.entity.conn.DBConn;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +18,10 @@ public class DynamicDataSourceDelegate {
 
     public DynamicDataSourceDelegate() {}
 
-    public static void setDataSource(DBConn conn) {
-        DruidDataSource dataSource = DataSourceFactory.getInstance().newDataSource(conn);
+    public static void setDataSource(DataSource ds) {
+        DruidDataSource dataSource = DataSourceFactory.getInstance().newDataSource(ds);
         Map<Object, Object> dataSourceMap = DynamicDataSource.getInstance().getDataSourceMap();
-        String dataSourceName = generateDataSourceName(conn.getDbName());
+        String dataSourceName = generateDataSourceName(ds.getDbName());
         dataSourceMap.put(dataSourceName, dataSource);
         DynamicDataSource.getInstance().setTargetDataSources(dataSourceMap);
         DataSourceContextHolder.setDBType(dataSourceName);
@@ -33,14 +35,14 @@ public class DynamicDataSourceDelegate {
         return name.toString();
     }
 
-    public static String generateMySQLUrl(DBConn conn) {
+    public static String generateMySQLUrl(DataSource ds) {
         StringBuilder url = new StringBuilder();
         url.append("jdbc:mysql://");
-        url.append(conn.getDbIp());
+        url.append(ds.getDbIp());
         url.append(":");
-        url.append(conn.getDbPort());
+        url.append(ds.getDbPort());
         url.append("/");
-        url.append(conn.getDbName());
+        url.append(ds.getDbName());
         url.append("?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull");
         return url.toString();
     }

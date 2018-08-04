@@ -2,7 +2,7 @@ package com.stanli.anomonitor.db;
 
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.stanli.anomonitor.entity.conn.DBConn;
+import com.stanli.anomonitor.entity.DataSource;
 
 public class DataSourceFactory {
 
@@ -31,12 +31,12 @@ public class DataSourceFactory {
         return instance;
     }
 
-    public static DruidDataSource newDataSource(DBConn conn) {
+    public static DruidDataSource newDataSource(DataSource ds) {
         DruidDataSource dynamicDataSource = new DruidDataSource();
         dynamicDataSource.setDriverClassName(DRIVER_CLASS_NAME);
-        dynamicDataSource.setUrl(DynamicDataSourceDelegate.generateMySQLUrl(conn));
-        dynamicDataSource.setUsername(conn.getDbUser());
-        dynamicDataSource.setPassword(conn.getDbPasswd());
+        dynamicDataSource.setUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
+        dynamicDataSource.setUsername(ds.getDbUser());
+        dynamicDataSource.setPassword(ds.getDbPasswd());
         dynamicDataSource.setMaxWait(MAX_WAIT_TIME);
         return dynamicDataSource;
     }

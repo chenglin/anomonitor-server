@@ -1,7 +1,7 @@
 package com.stanli.anomonitor.controller;
 
 import com.stanli.anomonitor.dto.TableColumn;
-import com.stanli.anomonitor.entity.conn.DBConn;
+import com.stanli.anomonitor.entity.DataSource;
 import com.stanli.anomonitor.entity.response.ResponseContent;
 import com.stanli.anomonitor.service.DataSourceService;
 import io.swagger.annotations.ApiOperation;
@@ -15,19 +15,30 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping(value = "/dataSource")
+@RequestMapping(value = "/data-source/mysql")
 public class DataSourceController {
     private final Logger logger = LoggerFactory.getLogger(DataSourceController.class);
 
     @Autowired
     private DataSourceService dataSourceService;
 
-    @ApiOperation(value = "获取数据库连接，对应的所有表", notes = "根据连接信息获取数据库连接，对应的所有表")
-    @RequestMapping(value = "/listTables", method = RequestMethod.POST)
-    public ResponseContent<List<String>> listTableNames(@RequestBody DBConn conn) {
-        logger.info("Get table name list from db {}", conn.getDbName());
+    @ApiOperation(value = "")
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ResponseContent<Boolean> addDataSource(
+            @RequestBody DataSource dataSource) {
         try {
-            List<String> tableNames = dataSourceService.getTableNames(conn);
+            dataSourceService.addDataSource(dataSource);
+        } catch (Exception e) {
+            return new ResponseContent<>(false, false, "");
+        }
+        return new ResponseContent<>(false, true, "");
+    }
+
+    @ApiOperation(value = "获取数据库连接，对应的所有表", notes = "根据连接信息获取数据库连接，对应的所有表")
+    @RequestMapping(value = "/list-tables", method = RequestMethod.GET)
+    public ResponseContent<List<String>> listTables(@RequestParam Long dsId) {
+        try {
+            List<String> tableNames = dataSourceService.listTables(dsId);
             return new ResponseContent<>(true, tableNames, "");
         } catch (Exception e) {
             logger.info("Connection timed out: {}", e.toString());
@@ -35,12 +46,13 @@ public class DataSourceController {
         }
     }
 
+
     @ApiOperation(value = "获取数据库中的表", notes = "根据表名和数据库名获取表描述")
-    @RequestMapping(value = "/listColumns", method = RequestMethod.POST)
-    public ResponseContent<List<TableColumn>> listTableColumn(@RequestBody DBConn conn) {
-        logger.info("Get table columns list from table {}", conn.getTableName());
+    @RequestMapping(value = "/list-table-columns", method = RequestMethod.GET)
+    public ResponseContent<List<TableColumn>> listTableColumn(@RequestParam Long dsId,
+                                                              @RequestParam String schemaName) {
         try {
-            List<TableColumn> tableColumns = dataSourceService.getTableColumns(conn);
+            List<TableColumn> tableColumns = dataSourceService.listTableColumns(dsId, schemaName);
             return new ResponseContent<>(false, tableColumns, "");
         } catch (Exception e) {
             logger.info("Connection timed out: {}", e.toString());

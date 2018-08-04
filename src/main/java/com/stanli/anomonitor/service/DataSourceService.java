@@ -1,14 +1,16 @@
 package com.stanli.anomonitor.service;
 
 import com.stanli.anomonitor.dto.TableColumn;
-import com.stanli.anomonitor.entity.conn.DBConn;
+import com.stanli.anomonitor.entity.DataSource;
 
 import java.util.List;
 
 public interface DataSourceService {
 
-    public List<String> getTableNames(DBConn conn) throws Exception;
+    void addDataSource(DataSource ds) throws Exception;
 
-    public List<TableColumn> getTableColumns(DBConn conn) throws Exception;
+    List<String> listTables(Long id) throws Exception;
+
+    List<TableColumn> listTableColumns(Long id, String schemaName) throws Exception;
 
 }

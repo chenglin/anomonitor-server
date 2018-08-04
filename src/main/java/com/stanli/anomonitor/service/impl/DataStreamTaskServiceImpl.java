@@ -1,13 +1,21 @@
 package com.stanli.anomonitor.service.impl;
-
 import com.stanli.anomonitor.entity.DataStreamTask;
+import com.stanli.anomonitor.mapper.DataStreamTaskMapper;
 import com.stanli.anomonitor.service.DataStreamTaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class DataStreamTaskServiceImpl implements DataStreamTaskService {
+
+    private DataStreamTaskMapper dataStreamTaskMapper;
+
+    @Autowired
+    public DataStreamTaskServiceImpl(DataStreamTaskMapper dataStreamTaskMapper) {
+        this.dataStreamTaskMapper = dataStreamTaskMapper;
+    }
 
     @Override
     public List<DataStreamTask> getAllTasks() {
@@ -20,7 +28,7 @@ public class DataStreamTaskServiceImpl implements DataStreamTaskService {
     }
 
     @Override
-    public void delTask(Long id) {
+    public void deleteTask(Long id) {
 
     }
 

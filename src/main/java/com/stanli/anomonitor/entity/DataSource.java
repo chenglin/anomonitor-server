@@ -1,13 +1,9 @@
-package com.stanli.anomonitor.entity.conn;
+package com.stanli.anomonitor.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.stanli.anomonitor.entity.TableData;
 import com.stanli.anomonitor.entity.enu.DBType;
 
-import java.io.Serializable;
-import java.util.List;
-
-public class DBConn implements Serializable {
+public class DataSource {
     @JsonIgnore
     private Long id;
     private String dbName;
@@ -18,11 +14,6 @@ public class DBConn implements Serializable {
     @JsonIgnore
     private String url;
     private DBType dbType;
-    // One to many
-    private List<TableData> tableDataList;
-
-    public DBConn() {
-    }
 
     public Long getId() {
         return id;
@@ -72,14 +63,6 @@ public class DBConn implements Serializable {
         this.dbPasswd = dbPasswd;
     }
 
-    public DBType getDbType() {
-        return dbType;
-    }
-
-    public void setDbType(DBType dbType) {
-        this.dbType = dbType;
-    }
-
     public String getUrl() {
         return url;
     }
@@ -88,26 +71,11 @@ public class DBConn implements Serializable {
         this.url = url;
     }
 
-    public List<TableData> getTableDataList() {
-        return tableDataList;
+    public DBType getDbType() {
+        return dbType;
     }
 
-    public void setTableDataList(List<TableData> tableDataList) {
-        this.tableDataList = tableDataList;
-    }
-
-    @Override
-    public String toString() {
-        return "DBConn{" +
-                "id=" + id +
-                ", dbName='" + dbName + '\'' +
-                ", dbIp='" + dbIp + '\'' +
-                ", dbPort='" + dbPort + '\'' +
-                ", dbUser='" + dbUser + '\'' +
-                ", dbPasswd='" + dbPasswd + '\'' +
-                ", url='" + url + '\'' +
-                ", dbType=" + dbType +
-                ", tableDataList=" + tableDataList +
-                '}';
+    public void setDbType(DBType dbType) {
+        this.dbType = dbType;
     }
 }

@@ -10,7 +10,7 @@ public interface DataStreamTaskService {
 
     void addTask(Long dbId, DataStreamTask task);
 
-    void delTask(Long id);
+    void deleteTask(Long id);
 
     void updateTask(DataStreamTask task);
 
