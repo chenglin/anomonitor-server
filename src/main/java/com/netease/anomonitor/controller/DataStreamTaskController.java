@@ -39,7 +39,7 @@ public class DataStreamTaskController {
     }
 
     @ApiOperation(value = "", notes = "")
-    @RequestMapping(value = "/tasks", method = RequestMethod.GET)
+    @RequestMapping(value = "/all-tasks", method = RequestMethod.GET)
     public ResponseContent<List<DataStreamTask>> getAllTask() {
 
         return null;
@@ -47,7 +47,7 @@ public class DataStreamTaskController {
 
 
     @ApiOperation(value = "", notes = "")
-    @RequestMapping(value = "/tasks", method = RequestMethod.GET)
+    @RequestMapping(value = "/task", method = RequestMethod.GET)
     public ResponseContent<DataStreamTask> getTask(
             @RequestParam String taskId) {
 

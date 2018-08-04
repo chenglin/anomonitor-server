@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@MapperScan("com.stanli.anomonitor.mapper")
+@MapperScan("com.netease.anomonitor.mapper")
 @EnableSwagger2
 @EnableScheduling
 public class AnomonitorApplication {

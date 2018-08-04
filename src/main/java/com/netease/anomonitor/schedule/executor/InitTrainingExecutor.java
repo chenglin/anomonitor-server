@@ -3,7 +3,6 @@ package com.netease.anomonitor.schedule.executor;
 import com.netease.anomonitor.service.MetricsService;
 import com.netease.anomonitor.entity.metrics.Metrics;
 import com.netease.anomonitor.mapper.ScheduleSettingsMapper;
-import com.netease.anomonitor.service.MetricsService;
 import com.netease.anomonitor.service.ModelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
