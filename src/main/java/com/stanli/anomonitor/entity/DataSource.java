@@ -1,19 +1,17 @@
 package com.stanli.anomonitor.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.stanli.anomonitor.entity.enu.DBType;
 
 public class DataSource {
     @JsonIgnore
     private Long id;
+    private String name;
     private String dbName;
     private String dbIp;
-    private String dbPort;
+    private Integer dbPort;
     private String dbUser;
     private String dbPasswd;
-    @JsonIgnore
-    private String url;
-    private DBType dbType;
+    private String dbUrl;
 
     public Long getId() {
         return id;
@@ -39,11 +37,11 @@ public class DataSource {
         this.dbIp = dbIp;
     }
 
-    public String getDbPort() {
+    public Integer getDbPort() {
         return dbPort;
     }
 
-    public void setDbPort(String dbPort) {
+    public void setDbPort(Integer dbPort) {
         this.dbPort = dbPort;
     }
 
@@ -63,19 +61,19 @@ public class DataSource {
         this.dbPasswd = dbPasswd;
     }
 
-    public String getUrl() {
-        return url;
+    public String getName() {
+        return name;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public DBType getDbType() {
-        return dbType;
+    public String getDbUrl() {
+        return dbUrl;
     }
 
-    public void setDbType(DBType dbType) {
-        this.dbType = dbType;
+    public void setDbUrl(String dbUrl) {
+        this.dbUrl = dbUrl;
     }
 }

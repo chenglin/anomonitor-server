@@ -7,8 +7,11 @@ public class DataStreamTask {
     private TaskStatus taskStatus;
     private String name;
     private String createTime;
+    private String schemaName;
+    private DataSource dataSource;
 
-    public DataStreamTask() {}
+    public DataStreamTask() {
+    }
 
     public Long getId() {
         return id;
@@ -41,4 +44,21 @@ public class DataStreamTask {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
+
+    public String getSchemaName() {
+        return schemaName;
+    }
+
+    public void setSchemaName(String schemaName) {
+        this.schemaName = schemaName;
+    }
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 }
+

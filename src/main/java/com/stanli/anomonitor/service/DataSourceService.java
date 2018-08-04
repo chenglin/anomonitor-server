@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface DataSourceService {
 
-    void addDataSource(DataSource ds) throws Exception;
+    DataSource addDataSource(DataSource ds) throws Exception;
 
     List<String> listTables(Long id) throws Exception;
 

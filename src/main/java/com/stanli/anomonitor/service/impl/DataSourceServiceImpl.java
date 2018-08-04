@@ -1,5 +1,6 @@
 package com.stanli.anomonitor.service.impl;
 
+import com.stanli.anomonitor.db.DataSourceContextHolder;
 import com.stanli.anomonitor.dto.TableColumn;
 import com.stanli.anomonitor.entity.DataSource;
 import com.stanli.anomonitor.db.DynamicDataSourceDelegate;
@@ -21,8 +22,17 @@ public class DataSourceServiceImpl implements DataSourceService {
     private DataSourceMapper dataSourceMapper;
 
     @Override
-    public void addDataSource(DataSource ds) throws Exception {
-        dataSourceMapper.addOne(ds);
+    public DataSource addDataSource(DataSource ds) throws Exception {
+        ds.setDbUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
+        DynamicDataSourceDelegate.setDataSource(ds);
+        // check if data source is right
+        List<Map> tables = dataSourceMapper.listTables();
+        logger.info("Connected data source, table size = {}", tables.size());
+        DataSourceContextHolder.setDBType("default");
+        List<Map> tableList = dataSourceMapper.listTables();
+        logger.info(" 2 Connected data source, table size = {}", tableList.size());
+        dataSourceMapper.insertOne(ds);
+        return dataSourceMapper.getByUrl(ds.getDbUrl());
     }
 
     @Override
@@ -31,7 +41,7 @@ public class DataSourceServiceImpl implements DataSourceService {
         DynamicDataSourceDelegate.setDataSource(ds);
         List<Map> tableList = dataSourceMapper.listTables();
         logger.info("Database name = {}, table size = {}", ds.getDbName(), tableList.size());
-        ds.setUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
+        ds.setDbUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
         return DynamicDataSourceDelegate.getTableDescValues(tableList);
     }
 
@@ -41,7 +51,7 @@ public class DataSourceServiceImpl implements DataSourceService {
         DynamicDataSourceDelegate.setDataSource(ds);
         List<Map> columnDesc = dataSourceMapper.listTableColumns(schemaName);
         logger.info("Database name = {}, table size = {}", ds.getDbName(), columnDesc.size());
-        ds.setUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
+        ds.setDbUrl(DynamicDataSourceDelegate.generateMySQLUrl(ds));
         return DynamicDataSourceDelegate.getTableColumnDescValue(columnDesc);
     }
 

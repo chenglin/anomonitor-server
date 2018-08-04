@@ -14,12 +14,8 @@ public class TrainingServiceImpl implements TrainingService {
     private final Logger logger = LoggerFactory.getLogger(TrainingServiceImpl.class);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private InitTrainingTask initTrainingTask;
-
     @Autowired
-    private TrainingServiceImpl(InitTrainingTask initTrainingTask) {
-        this.initTrainingTask = initTrainingTask;
-    }
+    private InitTrainingTask initTrainingTask;
 
     public void startInitTraining() {
         try {

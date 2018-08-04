@@ -24,14 +24,14 @@ public class DataSourceController {
 
     @ApiOperation(value = "")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseContent<Boolean> addDataSource(
+    public ResponseContent<DataSource> addDataSource(
             @RequestBody DataSource dataSource) {
         try {
-            dataSourceService.addDataSource(dataSource);
+            dataSource = dataSourceService.addDataSource(dataSource);
+            return new ResponseContent<>(false, dataSource, "");
         } catch (Exception e) {
-            return new ResponseContent<>(false, false, "");
+            return new ResponseContent<>(false, null, "");
         }
-        return new ResponseContent<>(false, true, "");
     }
 
     @ApiOperation(value = "获取数据库连接，对应的所有表", notes = "根据连接信息获取数据库连接，对应的所有表")

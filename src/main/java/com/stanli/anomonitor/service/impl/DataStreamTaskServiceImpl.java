@@ -1,4 +1,5 @@
 package com.stanli.anomonitor.service.impl;
+
 import com.stanli.anomonitor.entity.DataStreamTask;
 import com.stanli.anomonitor.mapper.DataStreamTaskMapper;
 import com.stanli.anomonitor.service.DataStreamTaskService;
@@ -10,12 +11,8 @@ import java.util.List;
 @Service
 public class DataStreamTaskServiceImpl implements DataStreamTaskService {
 
-    private DataStreamTaskMapper dataStreamTaskMapper;
-
     @Autowired
-    public DataStreamTaskServiceImpl(DataStreamTaskMapper dataStreamTaskMapper) {
-        this.dataStreamTaskMapper = dataStreamTaskMapper;
-    }
+    private DataStreamTaskMapper dataStreamTaskMapper;
 
     @Override
     public List<DataStreamTask> getAllTasks() {

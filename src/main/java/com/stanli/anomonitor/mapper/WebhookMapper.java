@@ -1,7 +1,7 @@
 package com.stanli.anomonitor.mapper;
 
 
-public class WebhookMapper {
+public interface WebhookMapper {
 
 
 }

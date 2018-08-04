@@ -16,34 +16,30 @@ import java.util.List;
 @Component
 public class TaskScheduler {
     private Logger logger = LoggerFactory.getLogger(TaskScheduler.class);
-    private DataStreamTaskService dataStreamTaskServicea;
-    private StreamingService streamingService;
-    private TrainingService trainingService;
 
     @Autowired
-    public TaskScheduler(DataStreamTaskService dataStreamTaskServicea,
-                         StreamingService streamingService,
-                         TrainingService trainingService) {
-        this.dataStreamTaskServicea = dataStreamTaskServicea;
-        this.streamingService = streamingService;
-        this.trainingService = trainingService;
-    }
+    private DataStreamTaskService dataStreamTaskService;
+    @Autowired
+    private StreamingService streamingService;
+    @Autowired
+    private TrainingService trainingService;
 
     @Scheduled(cron = "0/5 * * * * ? ")   //每5秒执行一次
     public void collectTaskExecuteLoop() {
         logger.info("Collec task");
-        List<DataStreamTask> tasks = dataStreamTaskServicea.getAllTasks();
-        for (int i = 0; i < tasks.size(); i++) {
-            DataStreamTask task = tasks.get(i);
-            if (TaskStatus.INIT_TASK.equals(task.getTaskStatus())) {
-                streamingService.startInitStreaming();
-            } else if (TaskStatus.STREAMING_DATA_END.equals(task.getTaskStatus())) {
-                trainingService.startInitTraining();
-            } else if (TaskStatus.INIT_TREANING_END.equals(task.getTaskStatus())) {
+        List<DataStreamTask> tasks = dataStreamTaskService.getAllTasks();
+        if (tasks != null) {
+            for (int i = 0; i < tasks.size(); i++) {
+                DataStreamTask task = tasks.get(i);
+                if (TaskStatus.INIT_TASK.equals(task.getTaskStatus())) {
+                    streamingService.startInitStreaming();
+                } else if (TaskStatus.STREAMING_DATA_END.equals(task.getTaskStatus())) {
+                    trainingService.startInitTraining();
+                } else if (TaskStatus.INIT_TREANING_END.equals(task.getTaskStatus())) {
 
+                }
             }
         }
     }
-
 
 }

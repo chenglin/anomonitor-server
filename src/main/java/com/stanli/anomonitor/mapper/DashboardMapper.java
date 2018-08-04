@@ -1,5 +1,5 @@
 package com.stanli.anomonitor.mapper;
 
 
-public class DashboardMapper {
+public interface DashboardMapper {
 }
