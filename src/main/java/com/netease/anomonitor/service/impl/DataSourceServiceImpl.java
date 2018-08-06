@@ -1,7 +1,7 @@
 package com.netease.anomonitor.service.impl;
 
 import com.netease.anomonitor.datasource.DataSourceContextHolder;
-import com.netease.anomonitor.dto.TableColumn;
+import com.netease.anomonitor.dto.TableData;
 import com.netease.anomonitor.entity.DataSource;
 import com.netease.anomonitor.datasource.DynamicDataSourceDelegate;
 import com.netease.anomonitor.mapper.DataSourceMapper;
@@ -41,7 +41,7 @@ public class DataSourceServiceImpl implements DataSourceService {
     }
 
     @Override
-    public List<TableColumn> listTableColumns(Integer id, String schemaName) throws Exception {
+    public List<TableData> listTableColumns(Integer id, String schemaName) throws Exception {
         DataSource ds = dataSourceMapper.getById(id);
         DynamicDataSourceDelegate.setDataSource(ds);
         List<Map> columnDesc = dataSourceMapper.listTableColumns(schemaName);

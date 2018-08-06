@@ -2,8 +2,7 @@ package com.netease.anomonitor.datasource;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.netease.anomonitor.entity.DataSource;
-import com.netease.anomonitor.dto.TableColumn;
-import com.netease.anomonitor.entity.DataSource;
+import com.netease.anomonitor.dto.TableData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +55,11 @@ public class DynamicDataSourceDelegate {
         return values;
     }
 
-    public static List<TableColumn> getTableColumnDescValue(List<Map> maps) {
-        List<TableColumn> values = new ArrayList<>();
+    public static List<TableData> getTableColumnDescValue(List<Map> maps) {
+        List<TableData> values = new ArrayList<>();
         for (int i = 0; i < maps.size(); i++) {
             Map map = maps.get(i);
-            TableColumn tableColumn = new TableColumn((String) map.get(COLUMN_NAME), (String) map.get(DATA_TYPE));
+            TableData tableColumn = new TableData((String) map.get(COLUMN_NAME), (String) map.get(DATA_TYPE));
             values.add(tableColumn);
         }
         return values;

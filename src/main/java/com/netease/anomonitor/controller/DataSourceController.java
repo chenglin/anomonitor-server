@@ -1,6 +1,6 @@
 package com.netease.anomonitor.controller;
 
-import com.netease.anomonitor.dto.TableColumn;
+import com.netease.anomonitor.dto.TableData;
 import com.netease.anomonitor.entity.DataSource;
 import com.netease.anomonitor.entity.response.ResponseContent;
 import com.netease.anomonitor.service.DataSourceService;
@@ -49,10 +49,10 @@ public class DataSourceController {
 
     @ApiOperation(value = "获取数据库中的表", notes = "根据表名和数据库名获取表描述")
     @RequestMapping(value = "/list-table-columns", method = RequestMethod.GET)
-    public ResponseContent<List<TableColumn>> listTableColumn(@RequestParam Integer dsId,
-                                                              @RequestParam String schemaName) {
+    public ResponseContent<List<TableData>> listTableColumn(@RequestParam Integer dsId,
+                                                            @RequestParam String schemaName) {
         try {
-            List<TableColumn> tableColumns = dataSourceService.listTableColumns(dsId, schemaName);
+            List<TableData> tableColumns = dataSourceService.listTableColumns(dsId, schemaName);
             return new ResponseContent<>(false, tableColumns, "");
         } catch (Exception e) {
             logger.info("Connection timed out: {}", e.toString());

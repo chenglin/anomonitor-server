@@ -1,16 +1,14 @@
 package com.netease.anomonitor.dto;
 
-public class TableColumn {
-
+public class TableData {
     private String tableName;
-
     private String tableType;
 
-    public TableColumn() {
+    public TableData() {
 
     }
 
-    public TableColumn(String tableName, String tableType) {
+    public TableData(String tableName, String tableType) {
         this();
         this.tableName = tableName;
         this.tableType = tableType;
